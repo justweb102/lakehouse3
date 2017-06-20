@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    
+    <!--<meta name="viewport" content="user-scalable=yes" />-->
+    
+    
+    
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>"Дом у озера" - жилой комплекс класса люкс возле парка Якутова</title>
+	<meta content="Дом у озера - комплекс домов класса люкс" name="description"/>
+	<meta content="Дом у озера - комплекс домов класса люкс" name="keywords"/>
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    
+    <link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <script src="js/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+    
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />-->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        $("#lk-tickets-accordion").accordion({
+            collapsible: true,
+            active: false,
+            heightStyle: "content"
+        });
+        
+        //$( "#lk-tickets-accordion" ).accordion( "option", "collapsible", true );
+    });
+    </script>
+    
+    
+    
+    
+    
+    
+    
+
+        <!-- ! ! ! ! ! ПЕРЕПОДКЛЮЧИТЬ ЛОКАЛЬНО ! ! ! ! ! 
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+        
+        
+<!-- Подключение Google-карты
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyA6s1E7zkzu4X03JZIWwhOmYuEvGPxPa7Y"></script>
+<script>
+//$(document).ready(function(){
+//setTimeout(function(){
+function initialize(){
+    var point = new google.maps.LatLng(54.742606,55.954474);
+    var imageBounds = new google.maps.LatLngBounds( //координаты изображения
+    new google.maps.LatLng(54.738218,55.947160), //левый нижний угол изображения
+    new google.maps.LatLng(54.743712,55.954751)); //правый верхний угол изображения
+    
+    var mapOptions = {
+        zoom: 16,
+        center: point,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        disableDefaultUI: true,
+        zoomControl: true,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.LARGE,
+            position: google.maps.ControlPosition.LEFT_CENTER
+        },
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER,
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+            mapTypeIds:[google.maps.MapTypeId.HYBRID,google.maps.MapTypeId.ROADMAP]
+        }
+    }
+    
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    var oldmap = new google.maps.GroundOverlay( //вывод изображения поверх карты
+        'img/genplan2.png', //URL изображения
+        imageBounds, {clickable:false}
+    );
+    
+    oldmap.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+//}, 2000);
+//});
+</script>
+ /Подключение Google-карты -->
+    
+    
+    
+	<!-- плавный скролл Всего -->
+	<!-- https://github.com/galambalazs/smoothscroll-for-websites -->
+<!--	<script src="js/SmoothScroll.js"></script>-->
+	<!-- плавный скролл Всего -->
+    
+    
+<!--    <script src="js/swipebox-master/src/js/jquery.swipebox.js"></script>
+    <link rel="stylesheet" href="js/swipebox-master/src/css/swipebox.css" />
+    <script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox();
+
+} )( jQuery );
+</script>-->
+    
+</head>
+
+<body>
+
+<!--<a href="img/logo-x3.png" class="swipebox" title="My Caption">
+<img src="img/logo-x3.png" alt="image">
+</a>-->
+
+    <!--<div class="app">
+        <h1>PhoneGap</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+    <!-- -->
+    
+    
+    
+    
+<div class="rotate">
+    <div class="rotate-wrap">
+        <img src="img/rotate.png" />
+        <p>Поверните ваше устройво для более комфортного отображения.</p>
+    </div>
+</div>
+
+
+
+<!-- Верхняя плашка -->
+<div class="top-bar">
+    <div class="top-bar-left">
+        <a href="#" class="menu-top-sandwich active" id="menu-top-sandwich"></a>
+        <a href="#" class="menu-top-close" id="menu-top-close"></a>
+    </div>
+    <div class="top-bar-right">
+        <a href="#" class="go-location-link go-auth-form top-bar-lk" data-link="auth-form"></a>
+    </div>
+    <div class="top-bar-center">
+        <span id="top-title"></span>
+    </div>
+</div>
+        <!--<a href="#" data-link="auth-form" class="go-location-link go-auth-form nodisplay">Вход</a>
+        <br />
+        <a href="#" data-link="signup-form" class="go-location-link go-signup-form nodisplay">Регистрация</a>
+        <span class="auth-bar-hello nodisplay">
+            <a class="go-location-link" data-link="lk-main" style="float:left; display:inline-block;">LK</a>
+            Привет, <span class="auth-bar-name"></span>! / <a href="#" class="auth-bar-logout" style="float:right; display:inline-block;">Выход</a>
+        </span>-->
+<!-- Верхняя плашка -->
+
+
+
+<!-- Нижняя плашка -->
+    <div class="base-menu">
+        <ul>
+            <li><a href="#" class="go-location-link ico-1" data-link="first">Проект</a></li>
+            <li><a href="#" class="go-location-link ico-2" data-link="gal">Галерея</a></li>
+            <li><a href="#" class="go-location-link ico-3" data-link="flats">Квартиры</a></li>
+            <li><a href="#" class="go-location-link ico-4" data-link="map">Карта</a></li>
+            <li><a href="#" class="go-location-link ico-5" data-link="contacts">Контакты</a></li>
+        </ul>
+    </div>
+<!-- Нижняя плашка -->
+
+
+
+<!-- Выпадающее меню -->
+<div class="menu-add" id="menu-add">
+    <ul>
+        <li><a href="#" class="go-location-link" data-link="menu-add-project">О проекте</a></li>
+        <li><a href="#" class="go-location-link" data-link="menu-add-raspolozhenie">Расположение</a></li>
+        <li><a href="#" class="go-location-link" data-link="menu-add-territoriya">Территория</a></li>
+        <li><a href="#" class="go-location-link" data-link="menu-add-infrastruktura">Инфраструктура</a></li>
+        <li><a href="#" class="go-location-link" data-link="menu-add-arhitektura">Архитектура</a></li>
+        <li><a href="#" class="go-location-link" data-link="menu-add-servis">Сервис</a></li>
+        <li><a href="#" class="go-location-link" data-link="menu-add-dokumentyi">Документы</a></li>
+        <!--<li><a href="#" class="go-location-link" data-link="menu-add-perejtinasajt">Перейти на сайт</a></li>-->
+        <li><a href="#" onclick="window.open('http://domuozera-ufa.ru/', '_system'); return false;">Перейти на сайт</a></li>
+        
+        
+    </ul>
+</div>
+<!-- Выпадающее меню -->
+
+
+
+
+
+
+<div class="section first active" id="section-first">    
+	<div class="index-screen">
+		<div class="index-wrap">
+			<img src="img/logo-x3.png" class="logo" />
+            
+            <!--window.open('img/logo-x3.png', '_system', ' ');            -->
+                                    
+			<!--<a href="#" class="but-main">Войти <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>-->
+            <!--<a href="#" class="button b1" id="go-main">Войти</a>-->
+            <a href="#" class="button b1 go-location-link" data-link="auth-form">Войти</a>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="base-screen" id="base-screen">
+    
+    
+    
+    
+    <div class="auth-bar" style="display:none !important;">
+        <a href="#" data-link="auth-form" class="go-location-link go-auth-form nodisplay">Вход</a>
+        <br />
+        <a href="#" data-link="signup-form" class="go-location-link go-signup-form nodisplay">Регистрация</a>
+        <span class="auth-bar-hello nodisplay">
+            <a class="go-location-link" data-link="lk-main" style="float:left; display:inline-block;">LK</a>
+            Привет, <span class="auth-bar-name"></span>! / <a href="#" class="auth-bar-logout" style="float:right; display:inline-block;">Выход</a>
+        </span>
+    </div>
+    
+    
+
+    
+
+
+    
+    <div class="base-wrap">
+        
+        
+        <!-- ДОП. МЕНЮ - О проекте -->
+        <div class="section bg_std-1 menu-add-project" >
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-about.jpg" />
+                <div class="title">
+                    О проекте
+                    <br />
+                    <span class="description">несколько слов о Доме у озера</span>
+                </div>
+            </div>
+            <div class="content-std">
+                Жилой комплекс «Дом у озера» расположен в историческом центре Уфы, ограниченном улицами Ленина, Белякова, Антонова и бульваром Ибрагимова. Территория комплекса соприкасается с излюбленным местом прогулок и отдыха горожан - парком имени Ивана Якутова.
+                <br />
+                При строительстве Литера №2 парк обретет еще один вход - со стороны бульвара Ибрагимова. Здесь появится тенистая аллея с ажурными лавочками и причудливыми фонарями, зелеными насаждениями и архитектурными инсталляциями.
+                <br />
+                <img src="http://domuozera-ufa.ru/etc/images/ab-img1.jpg" />
+                <br />
+                <br />                
+            </div>
+        </div>
+        </div>
+        <!-- / ДОП. МЕНЮ - О проекте -->
+        
+        
+        
+        <!-- ДОП. МЕНЮ - Расположение -->
+        <div class="section bg_std-1 menu-add-raspolozhenie" >
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-about.jpg" />
+                <div class="title">
+                    Расположение
+                    <br />
+                    <span class="description">Расположение</span>
+                </div>
+            </div>
+            <div class="content-std">
+                Текст.
+                <br />
+                <br />
+            </div>
+        </div>
+        </div>
+        <!-- / ДОП. МЕНЮ - Расположение -->
+        
+        
+        
+        <!-- ДОП. МЕНЮ - Территория -->
+        <div class="section bg_std-1 menu-add-territoriya" >
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-about.jpg" />
+                <div class="title">
+                    Территория
+                    <br />
+                    <span class="description">Территория</span>
+                </div>
+            </div>
+            <div class="content-std">
+                Текст.
+                <br />
+                <br />
+            </div>
+        </div>
+        </div>
+        <!-- / ДОП. МЕНЮ - Территория -->
+        
+        
+        
+        <!-- ДОП. МЕНЮ - Инфраструктура -->
+        <div class="section bg_std-1 menu-add-infrastruktura" >
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-about.jpg" />
+                <div class="title">
+                    Инфраструктура
+                    <br />
+                    <span class="description">Инфраструктура</span>
+                </div>
+            </div>
+            <div class="content-std">
+                Текст.
+                <br />
+                <br />
+            </div>
+        </div>
+        </div>
+        <!-- / ДОП. МЕНЮ - Инфраструктура -->
+        
+        
+        
+        <!-- ДОП. МЕНЮ - Архитектура -->
+        <div class="section bg_std-1 menu-add-arhitektura" >
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-about.jpg" />
+                <div class="title">
+                    Архитектура
+                    <br />
+                    <span class="description">Архитектура</span>
+                </div>
+            </div>
+            <div class="content-std">
+                Текст.
+                <br />
+                <br />
+            </div>
+        </div>
+        </div>
+        <!-- / ДОП. МЕНЮ - Архитектура -->
+        
+        
+        
+        <!-- ДОП. МЕНЮ - Сервис -->
+        <div class="section bg_std-1 menu-add-servis" >
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-about.jpg" />
+                <div class="title">
+                    Сервис
+                    <br />
+                    <span class="description">Сервис</span>
+                </div>
+            </div>
+            <div class="content-std">
+                Текст.
+                <br />
+                <br />
+            </div>
+        </div>
+        </div>
+        <!-- / ДОП. МЕНЮ - Сервис -->
+        
+        
+        
+        <!-- ДОП. МЕНЮ - Документы -->
+        <div class="section bg_std-1 menu-add-dokumentyi" >
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-about.jpg" />
+                <div class="title">
+                    Документы
+                    <br />
+                    <span class="description">Документы</span>
+                </div>
+            </div>
+            <div class="content-std">
+                Текст.
+                <br />
+                <br />
+            </div>
+        </div>
+        </div>
+        <!-- / ДОП. МЕНЮ - Документы -->
+        
+        
+        
+        <!-- ДОП. МЕНЮ - Перейти на сайт -->
+        <div class="section bg_std-1 menu-add-perejtinasajt" >
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-about.jpg" />
+                <div class="title">
+                    Перейти на сайт
+                    <br />
+                    <span class="description">Перейти на сайт</span>
+                </div>
+            </div>
+            <div class="content-std">
+                Текст.
+                <br />
+                <br />
+            </div>
+        </div>
+        </div>
+        <!-- / ДОП. МЕНЮ - Перейти на сайт -->
+        
+        
+        
+        <!-- Галерея -->
+        <div class="section bg_std-1 gal">
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-gal.jpg" />
+                <div class="title">
+                    Галерея
+                </div>
+            </div>
+            <div class="gals-all">
+                <div class="gals-item">
+                    <a href="#" data-gal="gal-1">
+                        <img src="img/gal-1.jpg" />
+                        <div class="gals-item-description">
+                            Общий вид
+                        </div>
+                    </a>
+                </div>
+                <div class="gals-item">
+                    <a href="#" data-gal="gal-2">
+                        <img src="img/gal-2.jpg" />
+                        <div class="gals-item-description">
+                            Вид из окон
+                        </div>
+                    </a>
+                </div>
+                <div class="gals-item">
+                    <a href="#" data-gal="gal-3">
+                        <img src="img/gal-3.jpg" />
+                        <div class="gals-item-description">
+                            Придомовая территория
+                        </div>
+                    </a>
+                </div>
+                <div class="gals-item">
+                    <a href="#" data-gal="gal-4">
+                        <img src="img/gal-4.jpg" />
+                        <div class="gals-item-description">
+                            Фотоотчет со стройки
+                        </div>
+                    </a>
+                </div>
+                
+
+                
+            </div>
+        </div>
+        </div>
+        <!-- / Галерея -->
+        
+        
+        
+        <!-- Галерея #1 -->
+        <div class="section bg_std-1" id="gal-1">
+        <div class="section-wrapper">
+                <div class="fotorama" data-nav="thumbs" data-auto="false">
+                    <img src="img/pic-gal-1-1.jpg" />
+                    <img src="img/pic-gal-1-2.jpg" />
+                    <img src="img/pic-gal-1-3.jpg" />
+                    <img src="img/pic-gal-1-4.jpg" />
+                    <img src="img/pic-gal-1-5.jpg" />
+                </div>
+        </div>
+        </div>
+        <!-- / Галерея #1 -->
+        
+        <!-- Галерея #2 -->
+        <div class="section bg_std-1" id="gal-2">
+        <div class="section-wrapper">
+                <div class="fotorama" data-nav="thumbs" data-auto="false">
+                    <img src="img/gal-2.jpg" />
+                    <img src="img/gal-2.jpg" />
+                    <img src="img/gal-2.jpg" />
+                    <img src="img/gal-2.jpg" />
+                    <img src="img/gal-2.jpg" />
+                    <img src="img/gal-2.jpg" />
+                </div>
+        </div>
+        </div>
+        <!-- / Галерея #2 -->
+        
+        <!-- Галерея #3 -->
+        <div class="section bg_std-1" id="gal-3">
+        <div class="section-wrapper">
+                <div class="fotorama" data-nav="thumbs" data-auto="false">
+                    <img src="img/gal-3.jpg" />
+                    <img src="img/gal-3.jpg" />
+                    <img src="img/gal-3.jpg" />
+                    <img src="img/gal-3.jpg" />
+                    <img src="img/gal-3.jpg" />
+                    <img src="img/gal-3.jpg" />
+                    <img src="img/gal-3.jpg" />
+                    <img src="img/gal-3.jpg" />
+                </div>
+        </div>
+        </div>
+        <!-- / Галерея #3 -->
+        
+        <!-- Галерея #4 -->
+        <div class="section bg_std-1" id="gal-4">
+        <div class="section-wrapper">
+                <div class="fotorama" data-nav="thumbs" data-auto="false">
+                    <img src="img/gal-4.jpg" />
+                    <img src="img/gal-4.jpg" />
+                    <img src="img/gal-4.jpg" />
+                    <img src="img/gal-4.jpg" />
+                    <img src="img/gal-4.jpg" />
+                    <img src="img/gal-4.jpg" />
+                    <img src="img/gal-4.jpg" />
+                    <img src="img/gal-4.jpg" />
+                </div>
+        </div>
+        </div>
+        <!-- / Галерея #4 -->
+        
+        
+        
+        
+        <!-- Квартиры -->
+        <div class="section bg_std-1 flats">
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-vyibor.jpg" />
+                <div class="title">
+                    Квартиры
+                    <br />
+                    <span class="description">выберите наиболее подходящий вариант</span>
+                </div>
+            </div>
+            <div class="content-std">
+                
+                <!--<div class="vyibor_poetazhny-etazh-liter">
+                    Секция А
+                </div>
+                
+                <div class="vyibor_poetazhny-etazh">
+                    <div class="vyibor_poetazhny-etazh-title">
+                        Этаж 1
+                    </div>
+                    <div class="vyibor_poetazhny-etazh-item">
+                        <a href="#" class="go-location-link" data-link="dom-a_kv-5039">
+                            <span class="vyibor_poetazhny-etazh-item-left">00-комнатная квартира</span>
+                            <span class="vyibor_poetazhny-etazh-item-right">00,00 м<sup>2</sup></span>
+                            <div class="clear"></div>
+                        </a>
+                    </div>
+                    <div class="vyibor_poetazhny-etazh-item">
+                        <a href="#" class="go-location-link" data-link="dom-a_kv-5039">
+                            <span class="vyibor_poetazhny-etazh-item-left">00-комнатная квартира</span>
+                            <span class="vyibor_poetazhny-etazh-item-right">00,00 м<sup>2</sup></span>
+                            <div class="clear"></div>
+                        </a>
+                    </div>
+                    <div class="vyibor_poetazhny-etazh-item">
+                        <a href="#" class="go-location-link" data-link="dom-a_kv-5039">
+                            <span class="vyibor_poetazhny-etazh-item-left">00-комнатная квартира</span>
+                            <span class="vyibor_poetazhny-etazh-item-right">00,00 м<sup>2</sup></span>
+                            <div class="clear"></div>
+                        </a>
+                    </div>
+                    
+                </div>-->
+                
+                
+                <div class="width100 vyibor_po_kol_komnat">
+                    <div class="width50">
+                        <a href="#" class="go-location-link vyibor_po_kol_komnat-item" data-link="1-komnat-list">
+                            <div class="bignum">
+                                1
+                            </div>
+                            комнатные
+                        </a>
+                    </div>
+                    <div class="width50">
+                        <a href="#" class="go-location-link vyibor_po_kol_komnat-item" data-link="2-komnat-list">
+                            <div class="bignum">
+                                2
+                            </div>
+                            комнатные
+                        </a>
+                    </div>
+                    <div class="width50">
+                        <a href="#" class="go-location-link vyibor_po_kol_komnat-item" data-link="3-komnat-list">
+                            <div class="bignum">
+                                3
+                            </div>
+                            комнатные
+                        </a>
+                    </div>
+                    <div class="width50">
+                        <a href="#" class="go-location-link vyibor_po_kol_komnat-item" data-link="4-komnat-list">
+                            <div class="bignum">
+                                4
+                            </div>
+                            комнатные
+                        </a>
+                    </div>
+                </div>
+                
+                
+                
+                
+            </div>
+        </div>
+        </div>
+        <!-- / Квартиры -->
+        
+        
+        
+
+        <!-- Квартиры - По количеству комнат №1 (Однушки) -->        
+        <div class="section bg_std-1 1-komnat-list">
+        <div class="section-wrapper">
+            
+            <div class="content-std">
+            
+                <div class="width100 kv_item_info_item">
+                    <div class="width35 kv_item_info_item_img">
+                        <img src="img/pic-pl-1.png" />
+                    </div>
+                    <div class="width65">
+                        <div class="title">
+                            Однокомнатная квартира
+                        </div>
+                        <div class="description">
+                            Жилая площадь: <strong>24.94 м<sup>2</sup></strong>
+                            <br />
+                            Общая площадь: <strong>60.76 м<sup>2</sup></strong>
+                        </div>
+                        <div>
+                            <a href="#" class="button b1 go-location-link" data-link="dom-a_kv-5039">Посмотреть</a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="width100 kv_item_info_item">
+                    <div class="width35 kv_item_info_item_img">
+                        <img src="img/pic-pl-2.png" />
+                    </div>
+                    <div class="width65">
+                        <div class="title">
+                            Однокомнатная квартира
+                        </div>
+                        <div class="description">
+                            Жилая площадь: <strong>20.63 м<sup>2</sup></strong>
+                            <br />
+                            Общая площадь: <strong>68.00 м<sup>2</sup></strong>
+                        </div>
+                        <div>
+                            <a href="#" class="button b1 go-location-link" data-link="dom-a_kv-5039">Посмотреть</a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="width100 kv_item_info_item">
+                    <div class="width35 kv_item_info_item_img">
+                        <img src="img/pic-pl-3.png" />
+                    </div>
+                    <div class="width65">
+                        <div class="title">
+                            Однокомнатная квартира
+                        </div>
+                        <div class="description">
+                            Жилая площадь: <strong>24.94 м<sup>2</sup></strong>
+                            <br />
+                            Общая площадь: <strong>60.76 м<sup>2</sup></strong>
+                        </div>
+                        <div>
+                            <a href="#" class="button b1 go-location-link" data-link="dom-a_kv-5039">Посмотреть</a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+        <!-- / Квартиры - По количеству комнат №1 (Однушки) -->   
+        
+        
+        
+        <!-- Квартиры - По количеству комнат №2 (Двушки) -->        
+        <div class="section bg_std-1 2-komnat-list">
+        <div class="section-wrapper">
+            
+            <div class="content-std">
+                Список двушек
+            </div>
+            
+        </div>
+        </div>
+        <!-- / Квартиры - По количеству комнат №2 (Двушки) -->
+        
+        
+        
+        <!-- Квартиры - По количеству комнат №3 (Трешки) -->        
+        <div class="section bg_std-1 3-komnat-list">
+        <div class="section-wrapper">
+            
+            <div class="content-std">
+                Список трешек
+            </div>
+            
+        </div>
+        </div>
+        <!-- / Квартиры - По количеству комнат №3 (Трешки) -->
+        
+        
+        
+        <!-- Квартиры - По количеству комнат №4 (Четырехкомнатные) -->        
+        <div class="section bg_std-1 4-komnat-list">
+        <div class="section-wrapper">
+            
+            <div class="content-std">
+                Список четырехкомнатных
+            </div>
+            
+        </div>
+        </div>
+        <!-- / Квартиры - По количеству комнат №4 (Четырехкомнатные) -->
+
+        
+        
+        
+
+
+<!-- Квартиры - Квартира 5039 -->
+        <div class="section bg_std-1 kvartira dom-a_kv-5039">
+        <div class="section-wrapper">
+            <div class="h1-std3">
+                1-к квартира 60,76 м<sup>2</sup>
+            </div>
+            <div class="content-std">
+                <div class="kvartira-img">
+                    <img src="img/ico-compass.png" class="ico-compass" />
+                    <img src="img/pic-plan-1.png" class="kv-img" />
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="kv_full_info">
+                    <div class="kv_full_info-line">
+                        <span class="kv_full_info-left">Количество комнат</span>
+                        <span class="kv_full_info-right">1</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="kv_full_info-line">
+                        <span class="kv_full_info-left">Жилая площадь:</span>
+                        <span class="kv_full_info-right">24.94 м<sup>2</sup></span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="kv_full_info-line">
+                        <span class="kv_full_info-left">Общая площадь:</span>
+                        <span class="kv_full_info-right">60.76 м<sup>2</sup></span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                <div class="go-srez">
+                    <a href="#" class="go-location-link" data-link="srez-1">Посмотреть план этажа</a>
+                </div>
+                
+                <div>
+                    <a href="#" class="button b1 go-location-link kv_bronirovat_link" data-link="kv-zabronirovat" data-kv_title_bronirovat="1-к квартира 60,76 м<sup>2</sup>">Забронировать</a>
+                </div>
+                
+                
+            </div>
+        </div>
+        </div>
+<!-- / Квартиры - Квартира 5039 -->
+
+
+
+<!-- Срез этажа №1 -->
+        <div class="section bg_std-1 srez-1">
+        <div class="section-wrapper">
+            <div class="content-std">
+                <br />
+                <br />
+                <img src="img/pic-srez-4.png" />
+            </div>
+        </div>
+        </div>
+<!-- / Срез этажа №1 -->
+
+
+
+<!-- Забронировать квартиру -->
+        <div class="section bgmenuadd kv-zabronirovat">
+        <div class="section-wrapper">
+            <div class="content-std">
+                <br />
+                <br />
+
+
+                <div class="form-bronirivat-wrapper">
+                    <div class="title">
+                        Заброниовать квартиру.
+                        <br />
+                        <span id="kv_title_bronirovat"></span>
+                    </div>
+                    <div class="form-contacts">
+                        <form id="form-bronirivat">
+                            <input type="text" name="fio" placeholder="Ваше имя" />
+                            <br />
+                            <br />
+                            <input type="text" name="tel" placeholder="Ваш номер телефона" />
+                            <br />
+                            <br />
+                            <input type="text" name="email" placeholder="Ваш e-mail" />
+                            <br />
+                            <br />
+                            <input type="hidden" name="text" />
+                            <br />
+                            <br />
+                            <a href="#" class="button b1 submit">Забронировать</a>
+                        </form>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        </div>
+<!-- / Забронировать квартиру -->
+
+
+
+
+         
+         
+        
+        <!-- Карта -->
+        <div class="section bg_std-1 map">
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-map.jpg" />
+                <div class="title">
+                    Карта
+                    <br />
+                    <span class="description">«Дом у Озера» на карте</span>
+                </div>
+            </div>
+            <!--<div id="bg">-->
+                <!--<div id="map-canvas" class="geomap"></div>-->
+            <!--</div>-->
+            <div class="map-img">
+                <img src="img/map-img.jpg" />
+            </div>
+        </div>
+        </div>
+        <!-- / Карта -->
+        
+        
+        
+        
+        <!-- Контакты -->
+        <div class="section bg_std-1 contacts">
+        <div class="section-wrapper">
+            <div class="h1-std-big">
+                <img src="img/bg-h1-contacts.jpg" />
+                <div class="title">
+                    Контакты
+                    <br />
+                    <span class="description">напишите или позвоните нам в любое время</span>
+                </div>
+            </div>
+            <div class="content-std">
+                <div class="title">
+                    Офис продаж
+                </div>
+                <div class="width100">
+                    <div class="width50">
+                        <strong>Адрес:</strong>
+                        <br />
+                        Россия, г. Уфа,
+                        <br />
+                        б-р Ибрагимова, 32
+                        <br />
+                        <br />
+                        <strong>Режим работы:</strong>
+                        <br />
+                        Пн-Пт: 09:00-18:00
+                        <br />
+                        Сб-Вс: 10:00-17:00
+                    </div>
+                    <div class="width50">
+                        <strong>Телефоны:</strong>
+                        <br />
+                        +7 (347) 216-00-00
+                        <br />
+                        +7 (347) 217-01-01
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+                <br />
+                
+                <div class="form-contacts-wrapper">
+                    <div class="title">
+                        Написать сообщение
+                    </div>
+                    <div class="form-contacts">
+                        <form id="form-contacts">
+                            <input type="text" name="fio" placeholder="Ваше имя" />
+                            <br />
+                            <br />
+                            <input type="text" name="tel" placeholder="Ваш номер телефона" />
+                            <br />
+                            <br />
+                            <textarea name="text" placeholder="Текст сообщения"></textarea>
+                            <br />
+                            <br />
+                            <a href="#" class="button b1 submit">Отправить</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- / Контакты -->
+        
+        
+        
+        <!-- Авторизация -->
+        <div class="section auth-form">
+            <div class="section-wrapper">
+                <div class="h1-std2">
+                    Вход
+                </div>
+                <br />
+                <form>
+                    <input type="text" id="login" name="login" placeholder="Логин" />
+                    <br />
+                    <br />
+                    <input type="password" id="pass" name="pass" placeholder="Пароль" />
+                    <br />
+                    <br />
+                    <a href="#" class="button b1 submit">Войти</a>
+                </form>
+                
+                <br />
+                <br />
+                <a href="#" data-link="signup-form" class="go-location-link go-signup-form nodisplay">Регистрация</a>
+                
+            </div>
+        </div>
+        <!-- / Авторизация -->
+        
+        
+        
+        <!-- Регистрация -->
+        <div class="section signup-form">
+        <div class="section-wrapper">
+            <div class="h1-std2">
+                Регистрация
+            </div>
+            <br />
+            <form id="signup-form">
+                <div class="signup-error-tooltip signup-error-login"></div>
+                <input type="text" id="signup-login" name="login" placeholder="Логин" />
+                <br />
+                <br />
+                <div class="signup-error-tooltip signup-error-pass"></div>
+                <input type="password" id="signup-pass" name="pass" placeholder="Пароль" />
+                <br />
+                <br />
+                <div class="signup-error-tooltip signup-error-pass_duplicate"></div>
+                <input type="password" id="signup-pass_duplicate" name="pass_duplicate" placeholder="Подтверждение пароля" />
+                <br />
+                <br />
+                <div class="signup-error-tooltip signup-error-email"></div>
+                <input type="text" id="signup-email" name="email" placeholder="Email" />
+                <br />
+                <br />
+                <div class="signup-error-tooltip signup-error-tel"></div>
+                <input type="text" id="signup-tel" name="tel" placeholder="Телефон" />
+                <br />
+                <br />
+                <a href="#" class="button b1 submit">Регистрация</a>
+                <br />
+                <br />
+            </form>
+        </div>
+        </div>
+        <!-- / Регистрация -->
+        
+        
+        
+        <!-- ЛК - Главная -->
+        <div class="section lk-main">
+        <div class="section-wrapper">
+            <div class="h1-std3">
+                Личный кабинет
+                <!--<img src="img/ava-1.png" />-->
+            </div>
+            <div class="lk-main-items">
+                <ul>
+                    <!--<li><a class="go-location-link lk-main-item-wrap" data-link="lk-info">Личная информация</a></li>
+                    <li><a class="go-location-link lk-main-item-wrap" data-link="lk-tickets">Написать застройщику</a></li>
+                    <li><a class="go-location-link lk-main-item-wrap" data-link="lk-polls">Опрос</a></li>
+                    <li><a href="#" class="auth-bar-logout">Выход</a></li>-->
+                    <li><a class="go-location-link lk-main-item-wrap" data-link="lk-info-person">Личная информация</a></li>
+                    <li><a class="go-location-link lk-main-item-wrap" data-link="lk-info-kv">Информация о квартире</a></li>
+                    <li><a class="go-location-link lk-main-item-wrap" data-link="lk-tickets">Написать застройщику</a></li>
+                    <li><a class="go-location-link lk-main-item-wrap" data-link="lk-polls">Опрос</a></li>
+                    <li><a class="go-location-link lk-main-item-wrap" data-link="lk-settings">Настройки</a></li>
+                    <li><a href="#" class="auth-bar-logout">Выход</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <!-- / ЛК - Главная -->
+        
+        
+        
+
+        <!-- ЛК - Личная информация -->
+        <div class="section bgmenuadd lk-info-person">
+        <div class="section-wrapper">
+            <div class="h1-std3">
+                Личный кабинет
+                <!--<img src="img/ava-1.png" />-->
+            </div>
+            <div class="content-std">
+            <!--Личная информация-->
+
+
+                <div class="lk-info-person-line">
+                    <div class="lk-info-person-left">
+                        <div class="lk-info-person-item-title">
+                            Имя и фамилия
+                        </div>
+                        <div class="lk-info-person-item-name">
+                            <span id="lk-info-person-item-fio"></span>
+                        </div>
+                    </div>
+                    <div class="lk-info-person-right">
+                        <img src="img/ico-lk-1-white.png" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="lk-info-person-line">
+                    <div class="lk-info-person-left">
+                        <div class="lk-info-person-item-title">
+                            E-mail
+                        </div>
+                        <div class="lk-info-person-item-name">
+                            <span id="lk-info-person-item-email"></span>
+                        </div>
+                    </div>
+                    <div class="lk-info-person-right">
+                        <img src="img/ico-lk-2-white.png" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="lk-info-person-line">
+                    <div class="lk-info-person-left">
+                        <div class="lk-info-person-item-title">
+                            Номер телефона
+                        </div>
+                        <div class="lk-info-person-item-name">
+                            <span id="lk-info-person-item-tel"></span>
+                        </div>
+                    </div>
+                    <div class="lk-info-person-right">
+                        <img src="img/ico-lk-4-white.png" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="lk-info-person-line">
+                    <div class="lk-info-person-left">
+                        <div class="lk-info-person-item-title">
+                            Номер договора
+                        </div>
+                        <div class="lk-info-person-item-name">
+                            <span id="lk-info-person-item-dogovor"></span>
+                        </div>
+                    </div>
+                    <div class="lk-info-person-right">
+                        <img src="img/ico-lk-5-white.png" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                
+                <div class="lk-info-person-btn">
+                    <a href="#" class="button b3 go-location-link" data-link="lk-settings">Изменить личные данные</a>
+                </div>
+                
+
+            </div>
+        </div>
+        </div>
+        <!-- / ЛК - Личная информация -->
+        
+        
+        
+        
+        
+        
+        <!-- ЛК - Информация о квартире -->
+        <div class="section bgmenuadd lk-info-kv">
+        <div class="section-wrapper">
+            <div class="content-std">
+            
+                <div class="width100">
+                
+                    <div class="width50">
+                        <div class="lk-info-person-item-title">
+                            Секция
+                        </div>
+                        <div class="lk-info-person-item-name">
+                            <span id="lk-info-kv-item-num"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="width50">
+                        <div class="lk-info-person-item-title">
+                            Этаж
+                        </div>
+                        <div class="lk-info-person-item-name">
+                            <span id="lk-info-kv-item-etazh"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="width50">
+                        <div class="lk-info-person-item-title">
+                            Общая площадь
+                        </div>
+                        <div class="lk-info-person-item-name">
+                            <span id="lk-info-kv-item-sq_ob"></span> м<sup>2</sup>
+                        </div>
+                    </div>
+                    
+                    <div class="width50">
+                        <div class="lk-info-person-item-title">
+                            Жилая площадь
+                        </div>
+                        <div class="lk-info-person-item-name">
+                            <span id="lk-info-kv-item-sq_zhil"></span> м<sup>2</sup>
+                        </div>
+                    </div>
+                    
+                    <img src="" id="lk-info-kv-item-img" />
+
+
+                    <div class="clear"></div>
+                </div>
+                
+            </div>
+        </div>
+        </div>
+        <!-- / ЛК - Информация о квартире -->
+        
+        
+        
+        
+        
+        <!-- ЛК - Изменение информации о себе -->
+        <div class="section lk-info lk-settings">
+            <div class="h1-std4">
+                Настройки личной информации
+            </div>
+        
+            <div class="section-wrapper-white">    
+            <form id="lk-info">
+                <!--ФИО
+                <br />-->
+                <div class="lk-info-input-item">
+                    <div class="ico-lk ico-fio"></div>
+                    <input type="text" name="fio" placeholder="ФИО" />
+                </div>
+                <br />
+                
+                <!--Телефон
+                <br />-->
+                <div class="lk-info-input-item">
+                    <div class="ico-lk ico-tel"></div>
+                    <input type="text" name="tel" placeholder="Телефон" />
+                </div>
+                <br />
+                
+                <!--Номер договора
+                <br />-->
+                <div class="lk-info-input-item">
+                    <div class="ico-lk ico-dogovor"></div>
+                    <input type="text" name="dogovor" placeholder="Номер договора" />
+                </div>
+                <br />
+                
+                
+<span style="display:none;">
+                Роль
+                <br />
+                <input type="text" name="role" placeholder="Роль" disabled="disabled" />
+                <br />
+                <br />
+</span>
+
+                <!--Номер квартиры
+                <br />-->
+                <div class="lk-info-input-item">
+                    <div class="ico-lk ico-kv">#</div>
+                    <input type="text" name="kvartira_num" placeholder="Номер квартиры" />
+                </div>
+                <br />
+                
+                <!--Номер дома
+                <br />-->
+                <div class="lk-info-input-item">
+                    <div class="ico-lk ico-dom">#</div>
+                    <input type="text" name="nomer_doma" placeholder="Номер дома" />
+                </div>
+                <br />
+                
+<span style="display:none;">
+                Активность
+                <br />
+                <input type="text" name="active" placeholder="Активность"  disabled="disabled" />
+                <br />
+                <br />
+</span>
+                
+                <a href="#" class="submit"></a>
+            </form>
+            </div>
+                    
+        </div>
+        <!-- / ЛК - Изменение информации о себе -->
+        
+        
+        
+        <!-- ЛК - Тикеты -->
+        <div class="section lk-tickets">
+        <div class="section-wrapper bgmenuadd">
+            <div class="h1-std3">
+                <img src="img/ico-tickets.png" />
+                <br />
+                Выберите тему
+            </div>
+            <div class="content-std">
+                <div class="lk-tickets-accordion" id="lk-tickets-accordion"></div>
+            </div>
+        </div>
+        </div>
+        <!-- / ЛК - Тикеты -->
+        
+        
+        
+        <!-- ЛК - Ход строительства -->
+        <div class="section lk-progress">
+            Ход строительства
+            <br />
+            <div class="videoblock">
+                <script type="text/javascript" src="http://rtsp.me/js/swfobject.js"></script><script type="text/javascript">var flashvars={ip:"145.255.26.120",port:"9786",login:"web",pass:"webufa",uriCamera:"/cameras/7",ptz:"false",playOnStart:"true",stream:"main",lang:"ru",name:"Дом у Озера - 1",keepAspectRatio:"false"};var params={menu:"false",scale:"noScale",allowFullscreen:"true",allowScriptAccess:"always",bgcolor:"#000"};var attributes={id:"altContent_776"};swfobject.embedSWF("http://rtsp.me/miniflashflv.swf","altContent_776","800","600","11.2.0","http://rtsp.me/expressInstall.swf",flashvars,params,attributes);</script><div id="altContent_776"><video src="http://145.255.26.120:9786/cameras/7/streaming/main.m3u8?authorization=Basic%20d2ViOndlYnVmYQ==" poster="http://145.255.26.120:9786/cameras/7/image?resolution=800x600&authorization=Basic%20d2ViOndlYnVmYQ==" width="100%" height="100%" controls></div>
+            </div>
+            
+        </div>
+        <!-- / ЛК - Ход строительства -->
+        
+        
+        
+        <!-- ЛК - Голосование -->
+        <div class="section lk-polls">
+        <div class="section-wrapper bgmenuadd">
+            <div class="content-std">
+                <div id="lk_polls_wrapper"></div>
+            </div>
+        </div>
+        </div>
+        <!-- / ЛК - Голосование -->
+        
+        
+        
+    </div>
+    
+</div>
+
+    
+    
+    <script type="text/javascript" src="js/my-frontend-core.js"></script>
+    
+    
+    <link  href="js/fotorama/fotorama.css" rel="stylesheet" />
+    <script src="js/fotorama/fotorama.js"></script>
+    
+    <script>
+    $(document).ready(function(){
+        //$('a[data-link="gal"]').click(function(){
+            
+            //setTimeout(function(){
+
+                $('.fotorama').fotorama({
+                    //width: 320,
+                    width: $('body').width(),
+                    //height: 360,
+                    maxwidth: '100%',
+                    allowfullscreen: true,
+                    nav: 'thumbs',
+                    thumbmargin: 0,
+                    click : false
+                });
+        
+        
+            //}, 500);
+        //});
+    });
+    </script>
+    
+    <script>
+    $(document).ready(function(){
+        $('a[data-link="gal"]').click(function(){
+            //setTimeout(function(){
+                
+        $('.fotorama-project').fotorama({
+            //width: 600,
+            maxwidth: '100%',
+            allowfullscreen: true,
+            nav: 'thumbs',
+            thumbmargin: 0,
+            click : false
+        });
+        
+            //}, 500);
+        });
+    });
+    </script>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
