@@ -18,6 +18,7 @@
 }
 
 body{
+    display:none;
 	font-family: "PT Sans", sans-serif;
 	font-size:16px;
 	padding:0;
